@@ -1,0 +1,30 @@
+[[default, [pin_incorrect_1, pin_correct]],
+ [pin_incorrect_1, [exit, pin_correct, pin_incorrect_2]],
+ [pin_incorrect_2, [exit, pin_correct, pin_incorrect_3]],
+ [pin_incorrect_3, [default]],
+ [pin_correct, [exit, show_balance, withdrawal_request]],
+ [show_balance, [exit]],
+ [withdrawal_request, [withdrawal_accepted, withdrawal_denied]],
+ [withdrawal_accepted, [cash_withdrawal_1]],
+ [cash_withdrawal_1, [cash_withdrawal_2]],
+ [cash_withdrawal_2, [default]],
+ [withdrawal_denied, [exit]],
+ [exit, [default]]].
+
+[[default, []],
+ [pin_incorrect_1, [card_inserted]],
+ [pin_incorrect_2, [card_inserted]],
+ [pin_incorrect_3, [card_confiscated]],
+ [pin_correct, [card_inserted, account_accessed]],
+ [show_balance, [card_inserted, account_accessed, balance_shown]],
+ [withdrawal_request, [card_inserted, account_accessed]],
+ [withdrawal_accepted, [card_inserted, account_accessed]],
+ [cash_withdrawal_1, [card_ejected]],
+ [cash_withdrawal_2, [cash_ejected]],
+ [withdrawal_denied, [card_inserted, account_accessed]],
+ [exit, [card_ejected]]].
+
+default.
+
+af(card_ejected).
+
