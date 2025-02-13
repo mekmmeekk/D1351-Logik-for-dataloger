@@ -1,0 +1,29 @@
+[imp(neg(s), k), imp(k, n), imp(and(k, n), neg(s))].
+
+or(and(k, neg(s), and(s, neg(k)))).
+
+[
+ [1, imp(neg(s), k), premise],
+ [2, imp(k, n), premise],
+ [3, imp(and(k, n), neg(s)), premise],
+	[
+	 [4, neg(s), assumption],
+	 [5, k, impel(4, 1)],
+	 [6, and(k, neg(s)), andint(5, 4)]
+	],
+ [7, imp(neg(s), and(k, neg(s))), impint(4, 6)],
+ [8, or(s, neg(s)), lem],
+ [9, or(s, and(k, neg(s))), impel(8, 7)],
+	[[10, s, assumption],
+		[[11, k, assumption],
+ 		 [12, n, impel(11, 2)],
+		 [13, and(k, n), andint(11, 12)],
+		 [14, neg(s), impel(13, 3)],
+		 [15, cont, negel(10, 14)]
+		],
+	 [16, neg(k), negint(11, 15)],
+	 [17, and(s, neg(k))]
+	],
+ [18, imp(s, and(s, neg(k))), impint(10, 17)],
+ [19, or(and(k, neg(s), and(s, neg(k)))), impel(9, 18)]
+].

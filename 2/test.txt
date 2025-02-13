@@ -1,0 +1,3 @@
+[or(a, b), imp(a, c), imp(b, c)].
+c.
+[[1, or(a, b), premise], [2, imp(a, c), premise], [3, imp(b, c), premise], [[4, a, assumption], [5, c, impel(4, 2)]], [[6, b, assumption], [7, c, impel(6, 3)]], [8, c, orel(1, 4, 5, 6, 7)]].
